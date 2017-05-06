@@ -24,11 +24,17 @@
     "imagemin-webpack-plugin": "^1.4.4",
     "node-sass": "^4.5.2",
     "optimize-css-assets-webpack-plugin": "^1.3.1",
+    "postcss-loader": "^1.3.3",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "modularscale-sass": "^2.1.1",
+    "normalize.css": "^7.0.0",
+    "typi": "^2.3.0"
   }
 }

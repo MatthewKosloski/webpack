@@ -23,7 +23,7 @@ const config = (env) => ({
   			},
   			{
   				test: /\.scss$/, 
-  				use: ExtractTextPlugin.extract({use: [{loader: 'css-loader'}, {loader: 'sass-loader'}]})
+  				use: ExtractTextPlugin.extract({use: [{loader: 'css-loader'}, {loader: 'postcss-loader'}, {loader: 'sass-loader'}]})
   			},
   			{
   				test: /\.js$/,
@@ -31,8 +31,8 @@ const config = (env) => ({
   				use: {loader: 'babel-loader'}
   			},
   			{
-  				test: /\.(png|jpg|jpeg|gif)$/,
-  				use: {loader: 'file-loader?name=assets/img/[name].[ext]'}
+  				test: /\.(png|jpg|jpeg|gif|svg)$/,
+  				use: {loader: 'file-loader?publicPath=../&name=assets/img/[name].[ext]'}
   			},
   			{
   				test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -51,6 +51,12 @@ const config = (env) => ({
 		quiet: true,
 		port: 9000
 	},
+	resolve: {
+		alias: {
+			normalize: path.join(__dirname, 'node_modules/normalize.css/normalize.css'),
+			typi: path.join(__dirname, 'node_modules/typi/scss/_typi.scss')	
+		}
+	}
 });
 
 export default config;

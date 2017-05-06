@@ -1,0 +1,29 @@
+$breakpoints: (
+	null: $breakpoint-small,
+	small: $breakpoint-medium,
+	large: $breakpoint-large
+);
+
+$typi: (
+	null: (14px, $ms-ratio),
+	large: ($ms-base, $ms-ratio)
+);
+
+$h1-map: (
+	null: (40.5px, 1.3),
+	large: (60.75px, 1.2)
+);
+
+$h2-map: (
+	null: (27px, 1.3),
+	large: (52px, 1.3)
+);
+
+$h3-map: (
+	null: (18px, $ms-ratio),
+	large: (20px, $ms-ratio)
+);
+
+$h4-map: (
+	null: ($ms-base, $ms-ratio)
+);

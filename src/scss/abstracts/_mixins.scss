@@ -1,0 +1,24 @@
+@mixin breakpoint($b) {
+    @if $b == "lg" {
+        @media (min-width: $breakpoint-large) {
+            @content;
+        }
+    }
+    @if $b == "md" {
+        @media (min-width: $breakpoint-medium) {
+            @content;
+        }
+    }
+    @if $b == "sm" {
+        @media (min-width: $breakpoint-small) {
+            @content;
+        }
+    }
+    @if $b == "xs" {
+        @content;
+    }
+}
+
+@mixin font-size($size) {
+    font-size: $size / strip-unit($ms-base) + 0rem;
+}

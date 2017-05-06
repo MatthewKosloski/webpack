@@ -1,0 +1,46 @@
+@function percentageOfTwelve($col) {
+	@return $col / 12 * 100%;
+}
+
+$gridGutter: 10px;
+$gridCols: 3, 4, 5, 6, 7, 12;
+$gridSizes: 'xs', 'sm', 'md', 'lg';
+
+.l-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-left: -$gridGutter;
+	margin-right: -$gridGutter;
+	> [class*="l-col"] {
+		padding-left: $gridGutter;
+		padding-right: $gridGutter;
+	}
+}
+
+.l-col--content-centered {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@each $size in $gridSizes {
+	@include breakpoint($size) {
+		@each $col in $gridCols {
+			$width: percentageOfTwelve($col);
+			.l-col-#{$size}-#{$col}-of-12 {
+				flex: 1 0 $width;
+				max-width: $width;
+			}
+			.l-col-#{$size}-offset-#{$col}-of-12 {
+				margin-left: $width;
+			}
+			.l-col-#{$size}-first {
+			  order: -1;
+			}
+			.l-col-#{$size}-last {
+			  order: 1;
+			}
+		}
+	}
+}
