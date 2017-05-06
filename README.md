@@ -1,3 +1,3 @@
-# webpack-kickstarter
+# webpack-boilerplate
 
-Webpack 2.0 starting point for static projects.
+A starting point for static projects using Webpack.
