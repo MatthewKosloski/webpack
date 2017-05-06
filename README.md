@@ -14,7 +14,7 @@ $ npm start
 
 ### Production
 
-The following command compiles a /public directory containing minified files.
+The following command compiles a `/public` directory containing minified files.
 
 ```
 $ npm run build
