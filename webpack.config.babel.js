@@ -4,6 +4,7 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import ImageminPlugin from 'imagemin-webpack-plugin';
 
 const config = (env) => ({
 	devtool: env.dev ? 'cheap-module-eval-source-map' : 'source-map',
@@ -39,7 +40,8 @@ const config = (env) => ({
 		new webpack.optimize.UglifyJsPlugin({disable: env.dev}),
 		new ExtractTextPlugin(`css/[name]${env.production ? '.min' : ''}.css`),
 		new OptimizeCssAssetsPlugin({disable: env.dev}),
-		new HtmlWebpackPlugin({template: './src/index.html', minify: {collapseWhitespace: env.production}})
+		new HtmlWebpackPlugin({template: './src/index.html', minify: {collapseWhitespace: env.production}}),
+		new ImageminPlugin({ test: 'assets/**' })
 	],
 	devServer: {
 		quiet: true,
