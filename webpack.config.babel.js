@@ -1,21 +1,25 @@
-const webpack = require('webpack');
-const path = require('path');
+import webpack from 'webpack';
+import path from 'path';
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
-module.exports = (env) => ({
+const config = (env) => ({
 	devtool: env.dev ? 'cheap-module-eval-source-map' : 'source-map',
 	entry: {
 		bundle: './src/js/app.js'
 	},
   	output: {
     	filename: `js/[name]${env.production ? '.min' : ''}.js`,
-    	path: path.resolve(__dirname, 'public')
+    	path: path.join(__dirname, 'public')
   	},
   	module: {
   		rules: [
+  			{
+  				test: /\.html$/,
+  				use: {loader: 'html-loader'}
+  			},
   			{
   				test: /\.scss$/, 
   				use: ExtractTextPlugin.extract({use: [{loader: 'css-loader'}, {loader: 'sass-loader'}]})
@@ -24,6 +28,10 @@ module.exports = (env) => ({
   				test: /\.js$/,
   				exclude: /node_modules/,
   				use: {loader: 'babel-loader'}
+  			},
+  			{
+  				test: /\.(png|jpg)$/,
+  				use: {loader: 'file-loader?name=assets/img/[name].[ext]'}
   			}
   		]
   	},
@@ -38,3 +46,5 @@ module.exports = (env) => ({
 		port: 9000
 	},
 });
+
+export default config;
