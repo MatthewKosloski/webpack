@@ -31,10 +31,14 @@ const config = (env) => ({
   				use: {loader: 'babel-loader'}
   			},
   			{
-  				test: /\.(png|jpg)$/,
+  				test: /\.(png|jpg|jpeg|gif)$/,
   				use: {loader: 'file-loader?name=assets/img/[name].[ext]'}
-  			}
-  		]
+  			},
+  			{
+  				test: /\.(eot|svg|ttf|woff|woff2)$/,
+  				use: {loader: 'file-loader?publicPath=../&name=assets/fonts/[name].[ext]'}
+  			},
+	  	]
   	},
   	plugins: [
 		new webpack.optimize.UglifyJsPlugin({disable: env.dev}),
