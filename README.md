@@ -6,7 +6,7 @@ A starting point for static projects using Webpack.
 
 ### Development
 
-The following command initiates a webpack-dev-server that hosts files from memory.  After, navigate to `http://localhost:9000/` in your web browser.
+The following command initiates a webpack-dev-server that hosts files from memory.  After, navigate to `http://localhost:3000/` in your web browser.
 
 ```
 $ npm start
