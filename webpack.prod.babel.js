@@ -10,6 +10,7 @@ import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import common from './webpack.common.babel.js';
 
 const config = merge(common, {
+	mode: 'production',
 	devtool: 'source-map',
 	output: {
 		filename: 'js/[name].min.js'
