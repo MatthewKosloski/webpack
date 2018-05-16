@@ -1,7 +1,67 @@
+/*
+*	Removes the unit from a value.
+*	E.g., strip-unit(45px) would
+*	return 45.
+*/
 @function strip-unit($unit) {
 	@return $unit / ($unit * 0 + 1);
 }
 
-@function percentageOfTwelve($col) {
-	@return $col / 12 * 100%;
+/*
+*	Converts a pixel value (e.g., 20px)
+*	to a rem value (e.g., 1.1rem).	
+*
+*/
+@function rem($size) {
+	@return $size / strip-unit($base-font-size-pixels) + 0rem;
+}
+
+/*
+*	Returns the power of an integer.
+*	E.g., pow(4, 2) would return 16.
+*/
+@function pow($number, $exponent) {
+	$value: 1;
+
+	@if $exponent > 0 {
+		@for $i from 1 through $exponent {
+			$value: $value * $number;
+		}
+	}
+
+	@return $value;
+}
+
+/*
+*	Returns a multiple of the baseline.
+*	For instance, if the baseline is 24px,
+*	vr(1) would return 24px (24 * 1 = 24), 
+*	vr(2) would return 48px (24 * 2 = 48), etc.
+*/
+@function vr($step) {
+	@return (strip-unit($base-font-size-pixels) * $baseline-ratio) * $step;
+}
+
+/*
+*	Returns a multiple of the basline
+*	in rem units.
+*/
+@function vrrem($step) {
+	@return rem(vr($step));
+}
+
+/*
+*	Returns a number that is
+*	$step steps up the modular scale.
+*/
+@function modularscale($step) {
+	@return strip-unit($base-font-size-pixels) * pow($baseline-ratio, $step);
+}
+
+/*
+*	Returns a modular scale number
+*	in rem units.
+*/
+@function modularscalerem($step) {
+	@return rem(modularscale($step));
 }

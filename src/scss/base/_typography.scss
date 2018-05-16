@@ -6,33 +6,33 @@
 
 h1,
 .heading-one {
-	font-size: 51px;
+	@include modularscale(3, 3, 4, 4);
 }
 
 h2,
 .heading-two {
-	font-size: 40px;
+	@include modularscale(2, 2, 3, 3);
 }
 
 h3,
 .heading-three {
-	font-size: 30px;
+	@include modularscale(2, 2, 2, 2);
 }
 
 h4,
 .heading-four {
-	font-size: 23px;
+	@include modularscale(1, 1, 1, 1);
 }
 
 h1,
 h2,
 h3,
 h4 {
-	margin: 23.4px 0;
+	margin: vrrem(1) 0;
 }
 
 p {
-	margin-bottom: 23.4px;
+	margin-bottom: vrrem(1);
 }
 
 a {

@@ -1,24 +1,42 @@
 @mixin breakpoint($b) {
-    @if $b == "lg" {
+    @if $b == 'lg' {
         @media (min-width: $breakpoint-large) {
             @content;
         }
     }
-    @if $b == "md" {
+    @if $b == 'md' {
         @media (min-width: $breakpoint-medium) {
             @content;
         }
     }
-    @if $b == "sm" {
+    @if $b == 'sm' {
         @media (min-width: $breakpoint-small) {
             @content;
         }
     }
-    @if $b == "xs" {
+    @if $b == 'xs' {
         @content;
     }
 }
 
-@mixin font-size($size) {
-    font-size: $size / strip-unit($ms-base) + 0rem;
+/*
+*   When used on a selector, it outputs 
+*   responsive font-sizes that are based 
+*   on the chosen baseline ratio. Each
+*   parameter is a step up the modular
+*   scale.
+*/
+@mixin modularscale($xs, $sm, $md, $lg) {
+    @include breakpoint('xs') {
+        font-size: modularscalerem($xs);
+    }
+    @include breakpoint('sm') {
+        font-size: modularscalerem($sm);
+    }
+    @include breakpoint('md') {
+        font-size: modularscalerem($md);
+    }
+    @include breakpoint('lg') {
+        font-size: modularscalerem($lg);
+    }
 }
