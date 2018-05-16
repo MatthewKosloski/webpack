@@ -1,3 +1,7 @@
 @function strip-unit($unit) {
 	@return $unit / ($unit * 0 + 1);
 }
+
+@function percentageOfTwelve($col) {
+	@return $col / 12 * 100%;
+}

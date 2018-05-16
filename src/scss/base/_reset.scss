@@ -1,18 +1,18 @@
-*, 
-::after, 
+*,
+::after,
 ::before {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	box-sizing: border-box;
 }
 
-input, 
-button, 
-textarea, 
+input,
+button,
+textarea,
 select {
-    font: inherit;
-    outline: none;
+	font: inherit;
+	outline: none;
 }
 
 img {

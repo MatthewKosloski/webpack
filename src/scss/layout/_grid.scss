@@ -1,18 +1,10 @@
-@function percentageOfTwelve($col) {
-	@return $col / 12 * 100%;
-}
-
-$gridGutter: 10px;
-$gridCols: 3, 4, 5, 6, 7, 12;
-$gridSizes: 'xs', 'sm', 'md', 'lg';
-
 .l-row {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin-left: -$gridGutter;
 	margin-right: -$gridGutter;
-	> [class*="l-col"] {
+	> [class*='l-col'] {
 		padding-left: $gridGutter;
 		padding-right: $gridGutter;
 	}
@@ -36,10 +28,10 @@ $gridSizes: 'xs', 'sm', 'md', 'lg';
 				margin-left: $width;
 			}
 			.l-col-#{$size}-first {
-			  order: -1;
+				order: -1;
 			}
 			.l-col-#{$size}-last {
-			  order: 1;
+				order: 1;
 			}
 		}
 	}
